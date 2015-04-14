@@ -1,0 +1,48 @@
+package week2;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class DuplicateElementsSets {
+
+    public int duplicateSets(Set<Integer> setOne, Set<Integer> setTwo, Set<Integer> setThree) {
+
+        int dup = 0;
+        for (Integer set1 : setOne) {
+            for (Integer set2 : setTwo) {
+                for (Integer set3 : setThree) {
+
+                    if ((set1 == set2) && (set2 == set3) && (set1 == set3)) {
+
+                        dup = set1;
+                    }
+
+                }
+            }
+        }
+        return dup;
+    }
+
+    public static void main(String[] args) {
+        DuplicateElementsSets test = new DuplicateElementsSets();
+
+        Set A = new HashSet();
+        Set B = new HashSet();
+        Set C = new HashSet();
+        A.add(1);
+        A.add(2);
+        A.add(3);
+        A.add(4);
+        A.add(5);
+
+        B.add(5);
+        B.add(1);
+        B.add(6);
+
+        C.add(5);
+        C.add(7);
+        System.out.println(test.duplicateSets(A, B, C));
+
+    }
+
+}
