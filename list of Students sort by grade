@@ -1,0 +1,54 @@
+package week2;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class ListOfStudents {
+
+    private String name;
+    private int grade;
+
+    public ListOfStudents(String nameStudent, int grades) {
+        name = nameStudent;
+        grade = grades;
+    }
+
+    @Override
+    public String toString() {
+
+        return name + " " + grade;
+    }
+
+    public static class CompGrade implements Comparator<ListOfStudents> {
+        @Override
+        public int compare(ListOfStudents person1, ListOfStudents person2) {
+            return person1.grade - person2.grade;
+        }
+    }
+
+    public static class CompName implements Comparator<ListOfStudents> {
+        @Override
+        public int compare(ListOfStudents person1, ListOfStudents person2) {
+            return person1.name.compareTo(person2.name);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        ArrayList<ListOfStudents> students = new ArrayList<ListOfStudents>();
+        students.add(new ListOfStudents("Ivan", 5));
+        students.add(new ListOfStudents("Mitko", 4));
+        students.add(new ListOfStudents("Ani", 4));
+        students.add(new ListOfStudents("Vasko", 6));
+
+        Collections.sort(students, new ListOfStudents.CompName());
+        Collections.sort(students, new ListOfStudents.CompGrade());
+        System.out.println("Sort by grades:");
+        for (ListOfStudents s : students) {
+            System.out.println(s.toString());
+        }
+
+    }
+
+}
