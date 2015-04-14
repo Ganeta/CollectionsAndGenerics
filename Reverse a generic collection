@@ -1,0 +1,33 @@
+package week2;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class ReverseCollection {
+
+    static void reverse(Collection<Integer> collection) {
+        List<Integer> reversed = new ArrayList<Integer>();
+
+        for (int i = 0; i < collection.size(); i++) {
+            reversed.add(i);
+        }
+
+        collection.clear();
+        for (int i = reversed.size() - 1; i >= 0; i--) {
+            collection.add(i);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> myCollection = new ArrayList<Integer>();
+
+        for (int i = 0; i <= 10; i++) {
+            myCollection.add(i);
+        }
+        ReverseCollection.reverse(myCollection);
+        System.out.println(myCollection);
+
+    }
+}
